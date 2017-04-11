@@ -21,10 +21,9 @@ namespace SOLID
 
 
             ICustomer custOld = new Customer();
-            IRead custRead = new Customer();
+            custOld.AddCustomer();
 
-            custRead.CalculateDiscount();
-
+            IRead custNew = new Customer();
         }
 
         public interface IErrorHandler
@@ -124,6 +123,7 @@ namespace SOLID
         public interface IRead:ICustomer
         {
             void Read();
+            
         }
     }
 }
