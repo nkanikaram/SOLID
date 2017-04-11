@@ -24,6 +24,9 @@ namespace SOLID
             custOld.AddCustomer();
 
             IRead custNew = new Customer();
+            custNew.AddCustomer();
+            custNew.CalculateDiscount();
+            custNew.Read();
         }
 
         public interface IErrorHandler
@@ -57,7 +60,7 @@ namespace SOLID
 
 
 
-        public class Customer : ICustomer
+        public class Customer : ICustomer, IRead
         {
             public virtual double CalculateDiscount()
             {
@@ -75,6 +78,11 @@ namespace SOLID
                     ErrorLogger el = new ErrorLogger();
                     el.LogException(ex.ToString());
                 }
+            }
+
+            public void Read()
+            {
+                throw new NotImplementedException();
             }
         }
 
